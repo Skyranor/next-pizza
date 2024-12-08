@@ -7,3 +7,4 @@ export { Select } from "./select";
 export { Slider } from "./slider";
 export { Skeleton } from "./skeleton";
 export { Popover } from "./popover";
+export { RangeSlider } from "./range-slider";
