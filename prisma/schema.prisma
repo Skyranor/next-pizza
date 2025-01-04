@@ -9,13 +9,14 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
+  id        Int      @id @default(autoincrement())
   email     String   @unique
   fullname  String
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   role      UserRole @default(USER)
+  verified  DateTime
 
   provider   String?
   providerId String?
@@ -32,7 +33,7 @@ model Category {
 }
 
 model Product {
-  id        String   @id @default(cuid())
+  id        Int      @id @default(autoincrement())
   name      String
   imageUrl  String
   createdAt DateTime @default(now())
@@ -53,7 +54,7 @@ model ProductItem {
   pizzaType Int?
 
   product   Product    @relation(fields: [productId], references: [id])
-  productId String
+  productId Int
   CartItem  CartItem[]
 }
 
@@ -72,8 +73,8 @@ model Ingredient {
 
 model VerificationCode {
   id        Int      @id @default(autoincrement())
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String   @unique
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    Int?     @unique
   code      String   @unique
   createdAt DateTime @default(now())
 
@@ -81,10 +82,10 @@ model VerificationCode {
 }
 
 model Cart {
-  id          Int     @id @default(autoincrement())
-  user        User?   @relation(fields: [userId], references: [id])
-  userId      String? @unique
-  totalAmount Int     @default(0)
+  id          Int    @id @default(autoincrement())
+  user        User?  @relation(fields: [userId], references: [id])
+  userId      Int?   @unique
+  totalAmount Int    @default(0)
   token       String
 
   items CartItem[]
@@ -107,7 +108,7 @@ model CartItem {
 model Order {
   id     Int         @id @default(autoincrement())
   user   User?       @relation(fields: [userId], references: [id])
-  userId String?
+  userId Int?
   status OrderStatus @default(PENDING)
 
   token String
