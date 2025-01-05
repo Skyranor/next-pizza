@@ -21,7 +21,7 @@ const generateProductItem = ({
     price: randomDecimalNumber(190, 600),
     pizzaType,
     size,
-  } as Prisma.ProductItemUncheckedCreateInput;
+  };
 };
 
 async function up() {
