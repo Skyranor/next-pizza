@@ -3,8 +3,8 @@ import React, { RefObject, useEffect, useRef } from "react";
 import { Title } from "./title";
 import { ProductCard } from "./product-card";
 import { useIntersection } from "react-use";
-import { useCategoryStore } from "@/store/category";
-import { cn } from "@/lib/utils";
+import { useCategoryStore } from "@/shared/store/category";
+import { cn } from "@/shared/lib/utils";
 import { ProductWithRelations } from "@/@types/prisma";
 
 interface Props {

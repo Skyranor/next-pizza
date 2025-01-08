@@ -5,8 +5,9 @@ import { Container } from "./container";
 import { Button } from "../ui/button";
 // import { ArrowRight, ShoppingCart } from "lucide-react";
 // import { SearchInput } from './search-input';
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import Link from "next/link";
+import { CartButton } from "./cart-button";
 // import { SearchInput } from "./search-input";
 // import { CartDrawer } from './cart-drawer';
 
@@ -44,6 +45,7 @@ export const Header: React.FC<Props> = ({ className }) => {
               <ArrowRight className="w-5 absolute right-5 transition duration-300 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0" />
             </Button>
           </CartDrawer> */}
+          <CartButton />
         </div>
       </Container>
     </header>

@@ -5,7 +5,7 @@ import { Button } from "../ui";
 import { Plus } from "lucide-react";
 import { Ingredient } from "@prisma/client";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 
 interface Props {
   id: number;
